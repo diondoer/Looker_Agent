@@ -1,0 +1,19 @@
+{
+  "name": "91952ff5-73cd-464e-8db3-a44b86e6d51e",
+  "displayName": "OpenAPI",
+  "description": "This OpenAPI specification is used to interact with the Gemini 1.0 Pro API within the Looker and BigQuery ecosystem. It enables querying external services, processing data, and handling general-purpose tasks outside the scope of Looker or BigQuery-specific operations. The Gemini API integration allows for advanced AI-driven interactions, such as natural language processing, code generation, and data insights.",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "sharedSchemas": [ {
+    "name": "TaskStatusResponse",
+    "schema": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"task_id\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The ID of the task\"\n    },\n    \"status\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The current status of the task (e.g., \\\"completed\\\", \\\"in_progress\\\", \\\"failed\\\")\"\n    },\n    \"result\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The result of the task if completed\"\n    }\n  }\n}"
+  }, {
+    "name": "TaskRequest",
+    "schema": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"input_text\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The input text or query for the Gemini model to process\"\n    },\n    \"task_type\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The type of task to perform\",\n      \"enum\" : [ \"nlp\", \"code_generation\", \"data_analysis\" ]\n    },\n    \"max_tokens\" : {\n      \"type\" : \"integer\",\n      \"description\" : \"The maximum number of tokens for the response\",\n      \"default\" : 256\n    }\n  }\n}"
+  }, {
+    "name": "TaskResponse",
+    "schema": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"result\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The result of the processed task\"\n    },\n    \"tokens_used\" : {\n      \"type\" : \"integer\",\n      \"description\" : \"Number of tokens used in the response\"\n    },\n    \"task_id\" : {\n      \"type\" : \"string\",\n      \"description\" : \"The ID of the generated task for status retrieval\"\n    }\n  }\n}"
+  } ],
+  "toolType": "CUSTOMIZED_TOOL"
+}

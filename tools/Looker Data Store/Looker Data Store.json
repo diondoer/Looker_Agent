@@ -1,0 +1,39 @@
+{
+  "name": "2b001eaf-2d32-4e01-8c95-b3c09a78b577",
+  "displayName": "Looker Data Store",
+  "description": "The Looker Data Store is a collection of LookML files, Looker documentation, and best practices for building, validating, and troubleshooting LookML models and Looker dashboards. It is used to provide syntax validation, error correction, and guidance on configuring Looker models. The data store contains flattened repositories of LookML files and Looker-related documentation in plain text, making it efficient for querying and validation tasks.",
+  "dataStoreSpec": {
+    "dataStoreConnections": [ {
+      "dataStoreType": "UNSTRUCTURED",
+      "dataStore": "projects/510916338777/locations/us/collections/default_collection/dataStores/looker-data-store_1726626180717",
+      "documentProcessingMode": "CHUNKS"
+    } ],
+    "models": {
+      "summarizationModel": {
+      
+      }
+    },
+    "fallbackPrompt": {
+      "company": "DoiT"
+    },
+    "groundingSettings": {
+    
+    },
+    "payloadSettings": {
+      "enableSnippetsPayload": true,
+      "maxSnippetsCount": 5
+    }
+  },
+  "actionSchemas": [ {
+    "name": "Looker Data Store",
+    "inputParameters": [ {
+      "name": "requestBody",
+      "schema": "{\n  \"required\" : [ \"query\" ],\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"query\" : {\n      \"type\" : \"string\",\n      \"description\" : \"Query for the data store search\"\n    },\n    \"filter\" : {\n      \"type\" : \"string\",\n      \"description\" : \"Filter expression to enhance data store search results.\"\n    },\n    \"userMetadata\" : {\n      \"type\" : \"object\",\n      \"description\" : \"Optional key/value pairs with metadata about the user to refine the data store search query.\"\n    },\n    \"fallback\" : {\n      \"type\" : \"string\",\n      \"description\" : \"Response to provide when no answer is provided by the data store.\"\n    }\n  }\n}"
+    } ],
+    "outputParameters": [ {
+      "name": "200",
+      "schema": "{\n  \"type\" : \"object\",\n  \"properties\" : {\n    \"answer\" : {\n      \"type\" : \"string\",\n      \"description\" : \"Answer with the highest match confidence\"\n    },\n    \"snippets\" : {\n      \"type\" : \"array\",\n      \"description\" : \"Snippets used to derive the answer\",\n      \"items\" : {\n        \"type\" : \"object\",\n        \"properties\" : {\n          \"uri\" : {\n            \"type\" : \"string\",\n            \"description\" : \"URI of the source used to derive the answer\"\n          },\n          \"text\" : {\n            \"type\" : \"string\",\n            \"description\" : \"Source text used to derive the answer\"\n          },\n          \"title\" : {\n            \"type\" : \"string\",\n            \"description\" : \"Title of the source used to derive the answer\"\n          }\n        }\n      }\n    }\n  }\n}"
+    } ]
+  } ],
+  "toolType": "CUSTOMIZED_TOOL"
+}

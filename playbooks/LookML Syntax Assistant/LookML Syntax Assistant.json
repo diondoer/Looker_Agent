@@ -1,0 +1,8 @@
+{
+  "name": "cbb89d81-66bc-4a37-ac5d-ac218f17cc37",
+  "displayName": "LookML Syntax Assistant",
+  "goal": "Handles LookML syntax errors, validation, and missing fields in models or views.",
+  "instruction": {
+  
+  }
+}
